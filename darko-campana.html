@@ -1,0 +1,317 @@
+<title>Cambia El Foco</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#f4f2ee;
+  --bg-raised:#ffffff;
+  --ink:#161311;
+  --ink-soft:#5b564f;
+  --line:#ddd8cf;
+  --accent:#f3a94d;
+  --accent-ink:#5a3200;
+  --tag-bg:#0e0d0c;
+  --tag-ink:#f4f2ee;
+  --mono:#8a8479;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e0d0c;
+    --bg-raised:#191715;
+    --ink:#f3efe8;
+    --ink-soft:#b5aea2;
+    --line:#332f2b;
+    --accent:#f3a94d;
+    --accent-ink:#2a1600;
+    --tag-bg:#f3efe8;
+    --tag-ink:#0e0d0c;
+    --mono:#93897b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e0d0c;
+  --bg-raised:#191715;
+  --ink:#f3efe8;
+  --ink-soft:#b5aea2;
+  --line:#332f2b;
+  --accent:#f3a94d;
+  --accent-ink:#2a1600;
+  --tag-bg:#f3efe8;
+  --tag-ink:#0e0d0c;
+  --mono:#93897b;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Work Sans",system-ui,sans-serif;line-height:1.5;}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px 120px;}
+
+.hero{padding:84px 0 56px;border-bottom:1px solid var(--line);}
+.hero .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+.hero .eyebrow::before{content:"";width:8px;height:8px;background:var(--accent);border-radius:50%;display:inline-block;}
+h1.title{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(52px,9vw,104px);line-height:.9;letter-spacing:.005em;margin:0 0 22px;text-wrap:balance;}
+h1.title em{font-style:normal;color:var(--accent);}
+.hero .sub{max-width:62ch;font-size:19px;color:var(--ink-soft);margin:0 0 22px;}
+.hero .quote{font-family:"Work Sans",sans-serif;font-weight:700;font-style:italic;font-size:clamp(18px,2.2vw,22px);line-height:1.4;color:var(--ink);border-left:4px solid var(--accent);padding-left:18px;margin:0 0 22px;max-width:56ch;text-wrap:balance;}
+.hero .pilars{font-size:19px;color:var(--ink-soft);margin:0;}
+.meta-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px;}
+.meta-chip{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border:1px solid var(--line);border-radius:100px;padding:6px 14px;}
+
+section{padding:64px 0;border-bottom:1px solid var(--line);}
+section:last-of-type{border-bottom:none;}
+.sec-label{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mono);margin-bottom:16px;}
+h2{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(34px,5vw,52px);letter-spacing:.01em;margin:0 0 20px;text-wrap:balance;}
+h3{font-family:"Work Sans",sans-serif;font-weight:700;font-size:18px;margin:0 0 8px;}
+p{margin:0 0 14px;max-width:68ch;}
+p.lede{font-size:18px;color:var(--ink-soft);max-width:66ch;}
+
+/* concept poster */
+.poster{background:var(--tag-bg);color:var(--tag-ink);border-radius:8px;padding:56px 40px;text-align:center;margin-top:8px;position:relative;overflow:hidden;}
+.poster::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 15%,color-mix(in srgb, var(--accent) 22%, transparent),transparent 60%);pointer-events:none;}
+.poster .kicker{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.65;margin-bottom:18px;position:relative;}
+.poster .line{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(42px,8vw,84px);line-height:.98;margin:0;text-wrap:balance;position:relative;}
+.poster .line .hi{color:var(--accent);}
+.poster .tagline{margin-top:22px;font-family:"Work Sans",sans-serif;font-size:16px;opacity:.8;position:relative;}
+
+/* mechanism strip */
+.mechanism{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:36px;font-family:"IBM Plex Mono",monospace;font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);}
+.mechanism .node{border:1px solid var(--line);border-radius:100px;padding:8px 18px;background:var(--bg-raised);}
+.mechanism .node.dark{background:var(--tag-bg);color:var(--tag-ink);border-color:var(--tag-bg);}
+.mechanism .arrow{color:var(--accent);font-size:16px;}
+
+/* vinyl wall cards */
+.vinyl-map{display:grid;gap:16px;margin-top:8px;}
+.vinyl{background:var(--bg-raised);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:4px;padding:24px 26px;}
+.vinyl .where{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mono);margin-bottom:10px;}
+.vinyl .copy{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(22px,3vw,30px);line-height:1.15;margin:0 0 8px;text-wrap:balance;}
+.vinyl .copy .hi{color:var(--accent);}
+.vinyl .note{font-size:14px;color:var(--ink-soft);margin:0;}
+
+/* online tactic list */
+.tactic{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);}
+.tactic:first-of-type{border-top:none;}
+.tactic .when{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--mono);padding-top:3px;}
+.tactic h3{margin-bottom:6px;}
+.tactic p{color:var(--ink-soft);font-size:15px;margin-bottom:6px;}
+.tactic .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);border-radius:100px;padding:3px 10px;margin-top:4px;}
+
+/* script card */
+.script{background:var(--bg-raised);border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin-top:14px;}
+.script .beat{display:grid;grid-template-columns:78px 1fr;gap:14px;padding:8px 0;border-top:1px dashed var(--line);}
+.script .beat:first-of-type{border-top:none;}
+.script .beat .t{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--mono);padding-top:2px;}
+.script .beat .d{font-size:14.5px;}
+.script .beat .d b{color:var(--accent-ink);background:var(--accent);padding:0 4px;border-radius:3px;}
+
+/* barrio grid */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px;}
+.card{background:var(--bg-raised);border:1px solid var(--line);border-radius:6px;padding:22px;}
+.card .num{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--accent-ink);background:var(--accent);display:inline-block;padding:2px 8px;border-radius:3px;margin-bottom:12px;}
+.card p{font-size:14.5px;color:var(--ink-soft);margin-bottom:0;}
+
+/* teaser mock */
+.teaser-pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}
+.teaser{border-radius:6px;padding:34px 22px;text-align:center;min-height:170px;display:flex;flex-direction:column;justify-content:center;}
+.teaser.phase1{background:var(--tag-bg);color:var(--tag-ink);}
+.teaser.phase2{background:var(--tag-bg);color:var(--tag-ink);background:radial-gradient(circle at 50% 30%, color-mix(in srgb, var(--accent) 30%, var(--tag-bg)), var(--tag-bg) 65%);}
+.teaser .phase-label{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin-bottom:14px;}
+.teaser .msg{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(19px,2.6vw,26px);line-height:1.15;}
+.teaser .msg .hi{color:var(--accent);}
+@media(max-width:600px){.teaser-pair{grid-template-columns:1fr;}}
+
+footer{padding:56px 0 0;}
+footer .close{font-family:"Bebas Neue",sans-serif;font-weight:400;font-size:clamp(26px,4vw,38px);text-wrap:balance;}
+footer .close .hi{color:var(--accent);}
+
+@media (max-width:640px){.tactic{grid-template-columns:1fr;gap:8px;} .script .beat{grid-template-columns:1fr;gap:2px;}}
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Propuesta de campaña — Dark-O Gym Club</div>
+    <h1 class="title">Cambia el <em>foco</em>.</h1>
+    <p class="sub">Dark-O quiere cambiar el foco. Ya no está en el gimnasio, está en la gente.</p>
+    <p class="quote">"No es falta de fuerza de voluntad, es que nunca has entrenado en un sitio pensado para ti."</p>
+    <p class="pilars">Lo vamos a desarrollar en base a tres pilares: vinilos, campaña online y marketing de barrio.</p>
+    <div class="meta-row">
+      <span class="meta-chip">Objetivo · Captación de nuevos socios</span>
+      <span class="meta-chip">Territorio · Cambia el foco</span>
+      <span class="meta-chip">Fase 1 · Vinilos + Online + Barrio</span>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-label">00 · El concepto</div>
+    <h2>De qué va todo esto</h2>
+    <p class="lede">La idea de fondo es esta: Dark-O decide cambiar el foco. Deja de ponerlo en las máquinas y lo pone en la gente — en por qué no va, por qué lo deja, por qué le da pereza. Ya no compite enseñando más máquinas o mejores instalaciones: compite cambiando ese enfoque.</p>
+    <div class="poster">
+      <div class="kicker">Territorio de marca</div>
+      <p class="line">CAMBIA EL <span class="hi">FOCO</span></p>
+      <p class="tagline">Menos postureo. Más foco.</p>
+    </div>
+    <h3 style="margin-top:32px;">Taglines que acompañan</h3>
+    <div class="vinyl-map">
+      <div class="vinyl">
+        <p class="copy" style="font-size:24px;">El foco, donde toca.</p>
+        <p class="note">No en las máquinas. No en las instalaciones. En ti.</p>
+      </div>
+      <div class="vinyl">
+        <p class="copy" style="font-size:24px;">Menos postureo. Más foco.</p>
+        <p class="note">No subimos la foto del espejo. Subimos la semana que no fallaste.</p>
+      </div>
+      <div class="vinyl">
+        <p class="copy" style="font-size:24px;">No cambiamos las luces. Cambiamos el enfoque.</p>
+        <p class="note">Mismas máquinas de siempre. Otra forma de mirarlas.</p>
+      </div>
+    </div>
+    <div class="mechanism">
+      <span class="node">Pereza</span>
+      <span class="arrow">→</span>
+      <span class="node">¿Qué hay detrás?</span>
+      <span class="arrow">→</span>
+      <span class="node dark">Dark-O ya lo soluciona</span>
+      <span class="arrow">→</span>
+      <span class="node">Cambias tú el foco</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">01 · Vinilos</div>
+    <h2>Nuevos vinilos para las paredes del gym</h2>
+    <p class="lede">La frase actual se retira, y se sustituye por varias frases que comparten el mismo lenguaje — cada una pensada para un punto distinto del recorrido por el gimnasio.</p>
+
+    <div class="vinyl-map">
+      <div class="vinyl">
+        <div class="where">Ventana 1</div>
+        <p class="copy">CAMBIA EL <span class="hi">FOCO.</span><br>Menos postureo. Más foco.</p>
+        <p class="note">Lo primero que se ve desde la calle — resume el territorio entero de un vistazo, sin necesitar nada más alrededor.</p>
+      </div>
+
+      <div class="vinyl">
+        <div class="where">Ventana 4</div>
+        <p class="copy">El único gimnasio donde te saludan <span class="hi">por tu nombre</span> al entrar.<br>Y no hace falta que te lo diga la pulsera.</p>
+        <p class="note">La pulsera E-GYM ya te reconoce automáticamente, eso no es ningún mérito. El mérito es que aquí te conocen de verdad, sin depender de la tecnología — cercanía real, no una pantalla que lee un chip.</p>
+      </div>
+
+      <div class="vinyl">
+        <div class="where">Suelo de la entrada</div>
+        <p class="copy">El objetivo no es no fallar un día.<br>Es <span class="hi">no abandonar.</span></p>
+        <p class="note">Lo primero que se pisa al entrar — recuerda, cada día, que la meta es la constancia, no la perfección.</p>
+      </div>
+
+      <div class="vinyl">
+        <div class="where">Opción A</div>
+        <p class="copy">¿Y si el problema <span class="hi">nunca fue</span><br>tu fuerza de voluntad?</p>
+        <p class="note">Plantea la duda antes de que nadie tenga tiempo de poner la excusa del día.</p>
+      </div>
+
+      <div class="vinyl">
+        <div class="where">Opción B</div>
+        <p class="copy">El foco lo pones tú.<br>Nosotros no dejamos que <span class="hi">se apague.</span></p>
+        <p class="note">Tú decides qué quieres cambiar; el gimnasio es lo que hace que esa decisión no se quede en un propósito de enero.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">02 · Campaña online</div>
+    <h2>Redes: todo lo que puede salir de "cambia el foco"</h2>
+    <p class="lede">Aquí extrapolamos el foco un poco más allá: nos hacemos preguntas a nosotros mismos y se las hacemos a la gente, para poder potenciarlo en redes sociales. Así es como salen preguntas como estas:</p>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="num">Preguntas incómodas</span>
+        <p style="color:var(--ink);font-weight:600;">"¿Te has preguntado por qué te cuesta ir al gym?"<br>"¿Y qué hay detrás de esa pereza?"<br>"Aquí, eso ya está solucionado."</p>
+      </div>
+      <div class="card">
+        <span class="num">El espejo participa</span>
+        <p style="color:var(--ink);font-weight:600;">"Dinos tú qué quieres cambiar."<br>"El foco lo pones tú."</p>
+      </div>
+      <div class="card">
+        <span class="num">Humor cercano</span>
+        <p style="color:var(--ink);font-weight:600;">"Hoy le gano a Pau en sentadilla."<br>"Hoy no toca ganar. Toca no rendirse."</p>
+      </div>
+      <div class="card">
+        <span class="num">Testimonios reales</span>
+        <p style="color:var(--ink);font-weight:600;">"No cambió el cuerpo. Cambió el foco."</p>
+      </div>
+      <div class="card">
+        <span class="num">El foco literal</span>
+        <p style="color:var(--ink);font-weight:600;">"Antes de que abras los ojos, aquí ya está encendido."</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;">Y así se despliega en distintos formatos</h3>
+    <div style="background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;padding:20px 8px;margin-top:8px;overflow-x:auto;">
+<pre class="mermaid">
+mindmap
+  root((CAMBIA EL FOCO))
+    Preguntas incómodas
+      Reels foco en negro: serie "¿Y si...?"
+      Stories con pregunta y respuesta deslizable
+      Carrusel "mitos de gimnasio del barrio"
+    El espejo participa
+      Reto UGC: graba tu respuesta frente al espejo
+      Encuesta en stories "¿tú qué cambiarías?"
+      Filtro de Instagram: foco iluminando texto
+    Humor cercano
+      Carrusel "hoy le gano a Pau"
+      Memes con bromas internas de socios
+      Stories tipo ranking entre amigos del gym
+    Testimonios reales
+      Mini-docu corto de un socio
+      Antes / después del enfoque, no del cuerpo
+      El coach responde preguntas sin filtro
+    El foco literal
+      Timelapse abriendo el gym con las luces
+      Edits estilo linterna en la sala vacía
+      Detrás de cámaras con las luces del local
+</pre>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="sec-label">03 · Marketing de barrio</div>
+    <h2>Cartelería: el mismo foco, en la calle</h2>
+    <p class="lede">Carteles, directos. Van en pareja — la pregunta y su respuesta, juntas desde el primer día, colocadas una al lado de la otra.</p>
+
+    <div class="teaser-pair">
+      <div class="teaser phase1">
+        <p class="msg">¿Y si nunca fue<br>tu fuerza de voluntad?</p>
+      </div>
+      <div class="teaser phase2">
+        <p class="msg">Fue el sitio.<br>Cambia el <span class="hi">foco.</span> Dark-O.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;">Más parejas de cartel</h3>
+    <div class="teaser-pair">
+      <div class="teaser phase1">
+        <p class="msg">¿Y si nunca habías entrenado en un sitio donde fuera fácil ser constante?</p>
+      </div>
+      <div class="teaser phase2">
+        <p class="msg">Aquí sí.<br>Cambia el <span class="hi">foco.</span> Dark-O.</p>
+      </div>
+    </div>
+    <div class="teaser-pair" style="margin-top:16px;">
+      <div class="teaser phase1">
+        <p class="msg">¿Cuánto hace que no te saludan por tu nombre en algún sitio?</p>
+      </div>
+      <div class="teaser phase2">
+        <p class="msg">Aquí, cada día.<br>Cambia el <span class="hi">foco.</span> Dark-O.</p>
+      </div>
+    </div>
+
+    <p class="note" style="margin-top:20px;color:var(--ink-soft);font-size:14.5px;">Cada pareja se coloca junta, en el mismo punto — sin esperas ni revelados: la pregunta y la respuesta se leen de un vistazo.</p>
+  </section>
+
+  <section>
+    <div class="sec-label">04 · Extras para después</div>
+    <h2>Una vez validadas estas tres</h2>
+    <p class="lede">Cuando vinilos, online y barrio estén rodando, hay margen para sumar sin cambiar de territorio: colaboraciones con comercios del barrio que también "cambien el foco" a su manera, una pieza más larga con testimonios reales de socios sobre qué cambiaron, o una activación puntual con el propio foco físico como photocall en la puerta del gimnasio.</p>
+  </section>
+
+  <footer>
+    <p class="close">Menos postureo.<br>Más <span class="hi">foco.</span></p>
+  </footer>
+
+</div>
