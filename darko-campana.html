@@ -100,6 +100,16 @@ p.lede{font-size:18px;color:var(--ink-soft);max-width:66ch;}
 .script .beat .d{font-size:14.5px;}
 .script .beat .d b{color:var(--accent-ink);background:var(--accent);padding:0 4px;border-radius:3px;}
 
+/* mindmap (plain HTML/CSS, no JS dependency) */
+.mindmap{margin-top:12px;display:flex;flex-direction:column;align-items:center;}
+.mindmap-root{font-family:"Bebas Neue",sans-serif;font-size:22px;letter-spacing:.02em;background:var(--tag-bg);color:var(--tag-ink);padding:14px 32px;border-radius:100px;text-align:center;}
+.mindmap-stem{width:2px;height:22px;background:var(--line);}
+.mindmap-branches{width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;}
+.mindmap-branch{border-top:3px solid var(--accent);padding-top:14px;}
+.mindmap-branch-title{font-family:"Work Sans",sans-serif;font-weight:700;font-size:15px;color:var(--ink);margin-bottom:10px;}
+.mindmap-branch ul{margin:0;padding-left:18px;}
+.mindmap-branch li{font-size:13.5px;color:var(--ink-soft);margin-bottom:8px;line-height:1.4;}
+
 /* barrio grid */
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px;}
 .card{background:var(--bg-raised);border:1px solid var(--line);border-radius:6px;padding:22px;}
@@ -240,31 +250,51 @@ footer .close .hi{color:var(--accent);}
     </div>
 
     <h3 style="margin-top:32px;">Y así se despliega en distintos formatos</h3>
-    <div style="background:var(--bg-raised);border:1px solid var(--line);border-radius:8px;padding:20px 8px;margin-top:8px;overflow-x:auto;">
-<pre class="mermaid">
-mindmap
-  root((CAMBIA EL FOCO))
-    Preguntas incómodas
-      Reels foco en negro: serie "¿Y si...?"
-      Stories con pregunta y respuesta deslizable
-      Carrusel "mitos de gimnasio del barrio"
-    El espejo participa
-      Reto UGC: graba tu respuesta frente al espejo
-      Encuesta en stories "¿tú qué cambiarías?"
-      Filtro de Instagram: foco iluminando texto
-    Humor cercano
-      Carrusel "hoy le gano a Pau"
-      Memes con bromas internas de socios
-      Stories tipo ranking entre amigos del gym
-    Testimonios reales
-      Mini-docu corto de un socio
-      Antes / después del enfoque, no del cuerpo
-      El coach responde preguntas sin filtro
-    El foco literal
-      Timelapse abriendo el gym con las luces
-      Edits estilo linterna en la sala vacía
-      Detrás de cámaras con las luces del local
-</pre>
+    <div class="mindmap">
+      <div class="mindmap-root">CAMBIA EL FOCO</div>
+      <div class="mindmap-stem"></div>
+      <div class="mindmap-branches">
+        <div class="mindmap-branch">
+          <div class="mindmap-branch-title">Preguntas incómodas</div>
+          <ul>
+            <li>Reels foco en negro: serie "¿Y si...?"</li>
+            <li>Stories con pregunta y respuesta deslizable</li>
+            <li>Carrusel "mitos de gimnasio del barrio"</li>
+          </ul>
+        </div>
+        <div class="mindmap-branch">
+          <div class="mindmap-branch-title">El espejo participa</div>
+          <ul>
+            <li>Reto UGC: graba tu respuesta frente al espejo</li>
+            <li>Encuesta en stories "¿tú qué cambiarías?"</li>
+            <li>Filtro de Instagram: foco iluminando texto</li>
+          </ul>
+        </div>
+        <div class="mindmap-branch">
+          <div class="mindmap-branch-title">Humor cercano</div>
+          <ul>
+            <li>Carrusel "hoy le gano a Pau"</li>
+            <li>Memes con bromas internas de socios</li>
+            <li>Stories tipo ranking entre amigos del gym</li>
+          </ul>
+        </div>
+        <div class="mindmap-branch">
+          <div class="mindmap-branch-title">Testimonios reales</div>
+          <ul>
+            <li>Mini-docu corto de un socio</li>
+            <li>Antes / después del enfoque, no del cuerpo</li>
+            <li>El coach responde preguntas sin filtro</li>
+          </ul>
+        </div>
+        <div class="mindmap-branch">
+          <div class="mindmap-branch-title">El foco literal</div>
+          <ul>
+            <li>Timelapse abriendo el gym con las luces</li>
+            <li>Edits estilo linterna en la sala vacía</li>
+            <li>Detrás de cámaras con las luces del local</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
   </section>
